@@ -1,10 +1,12 @@
 adpyke.codesnap
+csharp.package-management
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 esbenp.prettier-vscode
 fosshaas.fontsize-shortcuts
 hiteshchoudharycode.chai-theme
 ms-dotnettools.csharp
+ms-dotnettools.csdevkit
 ms-dotnettools.vscode-dotnet-runtime
 ms-vscode.powershell
 streetsidesoftware.code-spell-checker
