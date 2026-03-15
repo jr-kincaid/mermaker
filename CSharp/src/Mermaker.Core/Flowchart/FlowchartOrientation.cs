@@ -2,9 +2,9 @@
 
 public enum FlowchartOrientation
 {
-    BottomToTop,
-    LeftToRight = 0,
-    RightToLeft,
-    TopToBottom,
-    TopDown,
+    BottomToTop = 1,
+    LeftToRight = 2,
+    RightToLeft = 3,
+    TopToBottom =4,
+    TopDown = 0,
 }

@@ -9,20 +9,33 @@ public class FlowchartDiagram
     /// </summary>
     /// <param name="orientation">Orientation</param>
     public FlowchartOrientation Orientation {get; set;}
-
-    public string Title { get; set; }
-
+    
+    /// <summary>
+    /// Generates a Mermaid Diagram as a string.
+    /// </summary>
+    /// <returns>String.</returns>
     public string Generate ()
     {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new();
 
-        if(!string.IsNullOrWhiteSpace(Title))
-        {
-            builder.AppendLine(Title);
-        }
-        
-        var name = "flowchart LR";
+        var name = "flowchart";
         builder.Append(name);
+
+        if(
+            Orientation != FlowchartOrientation.TopDown &&
+            Orientation != FlowchartOrientation.TopToBottom
+        )
+        {
+            var o = Orientation switch
+            {
+               FlowchartOrientation.BottomToTop => "BT",
+               FlowchartOrientation.LeftToRight => "LR",
+               FlowchartOrientation.RightToLeft => "RL",
+               _=> string.Empty
+            };
+            builder.Append($" {o}");
+        }
+        builder.Append(Environment.NewLine);
         return builder.ToString();
     }
 }
