@@ -1,9 +1,21 @@
 ﻿namespace Mermaker.Core.Flowchart;
 
 using System.Text;
+using Mermaker.Core.Common;
+using Mermaker.FrontMatter;
 
 public class FlowchartDiagram
 {
+    private readonly DiagramFrontmatter Frontmatter;
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public FlowchartDiagram()
+    {
+        Frontmatter = new DiagramFrontmatter();
+    }
+
     /// <summary>
     /// Constructor.
     /// </summary>
@@ -13,7 +25,17 @@ public class FlowchartDiagram
     /// <summary>
     /// Title of the Diagram
     /// </summary>
-    public string Title {get; set;} = string.Empty;
+    public string Title
+    {
+        get
+        {
+            return Frontmatter.Title;
+        }
+        set
+        {
+            Frontmatter.Title = value;
+        }
+    }
     
     /// <summary>
     /// Generates Diagram as a string.
@@ -22,24 +44,9 @@ public class FlowchartDiagram
     public string Generate ()
     {
         StringBuilder builder = new();
-        GenerateDiagramTitle(builder);
+        Frontmatter.Generate(builder);
         GenerateDiagramTypeDeclaration(builder);
         return builder.ToString();
-    }
-
-    /// <summary>
-    /// Generates Title Line.
-    /// </summary>
-    /// <param name="builder">Diagram's <see cref="StringBuilder"/>.</param>
-    public void GenerateDiagramTitle(StringBuilder builder)
-    {
-        if (string.IsNullOrEmpty(Title))
-        {
-            return;
-        }
-        builder.AppendLine(Constants.TitleSeparator);
-        builder.AppendFormat($"{Constants.TitlePropertyName}: {Title}{Environment.NewLine}");
-        builder.AppendLine(Constants.TitleSeparator);
     }
 
     /// <summary>

@@ -1,9 +1,10 @@
-﻿using System.Text;
+﻿namespace Mermaker.Core.UnitTests.Flowchart;
+
+using System.Text;
 using Mermaker.Core.Flowchart;
-using NUnit.Framework.Internal;
+using NUnit.Framework;
 
-namespace Mermaker.Core.UnitTests;
-
+[TestFixture]
 public class FlowchartDiagramTests
 {
     [Test]
@@ -12,19 +13,6 @@ public class FlowchartDiagramTests
         var sut = new FlowchartDiagram();
         var result = sut.Generate();
         Assert.That(result, Is.EqualTo("flowchart\r\n"));
-    }
-
-    [TestCase("", "")]
-    [TestCase("Node", "---\r\ntitle: Node\r\n---\r\n")]
-    public void GenerateDiagramTitle_Generates_CorrectOutput(string title, string expectedDiagram)
-    {
-        FlowchartDiagram sut = new()
-        {
-            Title = title,
-        };
-        var builder = new StringBuilder();
-        sut.GenerateDiagramTitle(builder);
-        Assert.That(builder.ToString(), Is.EqualTo(expectedDiagram));
     }
 
     [TestCase(FlowchartOrientation.BottomToTop, "flowchart BT\r\n")]

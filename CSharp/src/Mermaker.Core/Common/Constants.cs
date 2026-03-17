@@ -1,8 +1,8 @@
-namespace Mermaker.Core.Flowchart;
+namespace Mermaker.Core.Common;
 
 public static class Constants
 {
-    public static string TitleSeparator => "---";
+    public static string FrontMatterSeparator => "---";
     public static string OrientationBottomToTop => "BT";
     public static string OrientationLeftToRight => "LR";
     public static string OrientationRightToLeft => "RL";
