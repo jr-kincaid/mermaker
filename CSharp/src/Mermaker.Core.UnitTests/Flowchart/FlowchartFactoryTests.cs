@@ -1,33 +1,25 @@
-﻿namespace Mermaker.Core.UnitTests.Flowchart;
-
+namespace Mermaker.Core.UnitTests;
 using System.Text;
 using Mermaker.Core.Flowchart;
 using NUnit.Framework;
 
 [TestFixture]
-public class FlowchartDiagramTests
+public class FlowchartFactoryTests
 {
-    [Test]
-    public void Generate_DefaultConstructor_ReturnsExpectedDiagram()
-    {
-        var sut = new FlowchartDiagram();
-        var result = sut.Generate();
-        Assert.That(result, Is.EqualTo("flowchart\r\n"));
-    }
-
     [TestCase(FlowchartOrientation.BottomToTop, "flowchart BT\r\n")]
     [TestCase(FlowchartOrientation.LeftToRight, "flowchart LR\r\n")]
     [TestCase(FlowchartOrientation.RightToLeft, "flowchart RL\r\n")]
     [TestCase(FlowchartOrientation.TopDown, "flowchart\r\n")]
     [TestCase(FlowchartOrientation.TopToBottom, "flowchart\r\n")]
-    public void GenerateDiagramTypeDeclaration_Generates_CorrectOutput(FlowchartOrientation orientation, string expectedDiagram)
+    public void AddDiagramTypeDeclaration_Makes_CorrectOutput(FlowchartOrientation orientation, string expectedDiagram)
     {
-        FlowchartDiagram sut = new()
+        FlowchartDiagram diagram = new()
         {
             Orientation = orientation
         };
+        var sut = new FlowchartFactory();
         var builder = new StringBuilder();
-        sut.GenerateDiagramTypeDeclaration(builder);
+        sut.AddDiagramTypeDeclaration(builder, diagram);
         Assert.That(builder.ToString(), Is.EqualTo(expectedDiagram));
     }
 }

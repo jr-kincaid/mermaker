@@ -1,4 +1,4 @@
-﻿namespace Mermaker.Core.Flowchart;
+﻿namespace Mermaker.Core;
 
 public enum FlowchartOrientation
 {

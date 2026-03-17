@@ -14,7 +14,7 @@ public class DiagramFrontmatter
     /// Generates Entire Frontmatter section.
     /// </summary>
     /// <param name="builder">Diagram's <see cref="StringBuilder"/>.</param>
-    public void Generate(StringBuilder builder)
+    public void Make(StringBuilder builder)
     {
 
         var lineGenerators = new [ ] {
