@@ -7,6 +7,19 @@ namespace Mermaker.Core.Flowchart;
 public class FlowchartFactory
 {
     /// <summary>
+    /// Constructor.
+    /// </summary>
+    public FlowchartFactory()
+    {
+        Nodes = new List<FlowchartNode>();
+    }
+
+    /// <summary>
+    /// Nodes.
+    /// </summary>
+    public List<FlowchartNode> Nodes {get; set;}
+
+    /// <summary>
     /// Makes a <see cref="DiagramFrontmatter"/>.
     /// </summary>
     /// <returns><see cref="DiagramFrontmatter"/>.</returns>

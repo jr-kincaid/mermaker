@@ -37,6 +37,17 @@ public class FlowchartDiagram
             Frontmatter.Title = value;
         }
     }
+
+    /// <summary>
+    /// Adds a Node to the Diagram.
+    /// </summary>
+    /// <param name="shape">Shape to add.</param>
+    public void AddNode(FlowchartNode shape)
+    {
+        // TODO: Check for dupes
+        // TODO: Check for Syntax Issues 
+        Factory.Nodes.Add(shape);
+    }
     
     /// <summary>
     /// Generates Diagram as a string.
@@ -47,8 +58,10 @@ public class FlowchartDiagram
         StringBuilder builder = new();
         Frontmatter.Make(builder);
         Factory.AddDiagramTypeDeclaration(builder, this);
+        foreach(var node in Factory.Nodes)
+        {
+            builder.AppendLine($"    {node.Id}");
+        }
         return builder.ToString();
     }
-
-    
 }
