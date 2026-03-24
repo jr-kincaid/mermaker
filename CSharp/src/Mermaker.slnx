@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Mermaker.Core.UnitTests/Mermaker.Core.UnitTests.csproj" />
+  <Project Path="Mermaker.Core/Mermaker.Core.csproj" />
+</Solution>
