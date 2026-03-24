@@ -14,7 +14,7 @@ The project [powershell script](/CSharp/scripts/VSCode/New-Enviroment.ps1) that 
 
 ## Running C# Unit Test Suite
 
-```powershell
+```powershell Powershell: Working with dotnet CLI to run Unit Tests
 
 # Make sure you are in the right directory for .NET CLI to work.
 # Typically this is where the Solution file lives. In this case Mermaker.slnx.
